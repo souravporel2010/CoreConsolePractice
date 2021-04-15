@@ -7,7 +7,7 @@ namespace CoreConsolePractice
         static void Main(string[] args)
         {
             Console.WriteLine("static Counter Value- "+ StaticTest.counter);
-            
+            Console.WriteLine("Hello");
             Console.ReadLine();
             
         }
