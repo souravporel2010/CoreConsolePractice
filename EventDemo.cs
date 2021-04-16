@@ -17,6 +17,7 @@ namespace CoreConsolePractice
             JobService js = new JobService();
             js.jobhandler += MailService.MailSending;
             js.jobhandler += MessageService.MessageSending;
+            //js.jobhandler();
             js.JobRunning();
 
         }
@@ -25,7 +26,7 @@ namespace CoreConsolePractice
         {
             public delegate void JobEventHandler();
 
-            public JobEventHandler jobhandler;
+            public event JobEventHandler jobhandler;
 
             public void JobRunning()
             {
