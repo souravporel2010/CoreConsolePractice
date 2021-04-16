@@ -19,48 +19,55 @@ namespace CoreConsolePractice
             js.jobhandler += MessageService.MessageSending;
             //js.jobhandler();
             js.JobRunning();
-
+            int i = 19;
+            Console.WriteLine(i.Addsum().ToString()); 
         }
 
-        public class JobService
+    }
+    public static class Util
+    {
+        public static int Addsum(this int i)
         {
-            public delegate void JobEventHandler();
-
-            public event JobEventHandler jobhandler;
-
-            public void JobRunning()
-            {
-                Console.WriteLine("Job Running---");
-                Thread.Sleep(3000);
-                Console.WriteLine("Job Completed");
-                JobEventPublisher();
-            }
-
-            public void JobEventPublisher()
-            {
-                if (jobhandler != null)
-                {
-                    jobhandler();
-                }
-
-            }
+            return i + 100;
         }
+    }
+    public class JobService
+    {
+        public delegate void JobEventHandler();
 
-        public class MailService 
+        public event JobEventHandler jobhandler;
+
+        public void JobRunning()
         {
-            public static void MailSending()
-            {
-                Console.WriteLine("Mail sended");
-            }
+            Console.WriteLine("Job Running---");
+            Thread.Sleep(3000);
+            Console.WriteLine("Job Completed");
+            JobEventPublisher();
         }
 
-        public class MessageService
+        public void JobEventPublisher()
         {
-            public static void MessageSending()
+            if (jobhandler != null)
             {
-                Console.WriteLine("Message sended");
+                jobhandler();
             }
-        }
 
+        }
+    }
+
+    public class MailService
+    {
+        public static void MailSending()
+        {
+            Console.WriteLine("Mail sended");
+        }
+    }
+
+    public class MessageService
+    {
+        public static void MessageSending()
+        {
+            Console.WriteLine("Message sended");
+        }
     }
 }
